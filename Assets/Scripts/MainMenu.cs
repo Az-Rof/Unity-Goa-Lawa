@@ -9,25 +9,22 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     //public GameObject StartMenu, SettingsMenu, ExitMenu;
-    List<GameObject> PopUp = new List<GameObject>();
+    public List<GameObject> PopUp = new List<GameObject>();
     public Button StartButton, SettingsButton, ExitButton;
+    
+    private void Awake() {
+        
+    }
 
     private void Start()
     {
-        PopUp = new List<GameObject>().ToList();
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("PopUp"))
-        {
-            // Add the game object to the list of PopUp
-            PopUp.Add(go);
-        }
-        StartButton.onClick.AddListener(PopUp_StartGame);
-        ExitButton.onClick.AddListener(PopUp_quit);
-        SettingsButton.onClick.AddListener(PopUp_Settings);
+        
     }
 
     // Update is called once per frame
     void Update()
-    {   StartButton.onClick.AddListener(PopUp_StartGame);
+    {
+        StartButton.onClick.AddListener(PopUp_StartGame);
         ExitButton.onClick.AddListener(PopUp_quit);
         SettingsButton.onClick.AddListener(PopUp_Settings);
     }
@@ -36,7 +33,7 @@ public class MainMenu : MonoBehaviour
     // Popup is called
     public void PopUp_StartGame()
     {
-        foreach (GameObject PopUp in PopUp.Where(go => go.tag == "Pop-Up"))
+        foreach (GameObject PopUp in PopUp)
         {
             if (PopUp.name == "StartGame")
             {
@@ -50,7 +47,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PopUp_quit()
     {
-        foreach (GameObject PopUp in PopUp.Where(go => go.tag == "Pop-Up"))
+        foreach (GameObject PopUp in PopUp)
         {
             if (PopUp.name == "ExitGame")
             {
@@ -64,7 +61,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PopUp_Settings()
     {
-        foreach (GameObject PopUp in PopUp.Where(go => go.tag == "Pop-Up"))
+        foreach (GameObject PopUp in PopUp)
         {
             if (PopUp.name == "SettingsGame")
             {
@@ -94,5 +91,6 @@ public class MainMenu : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
         // Muat ulang scene yang sama
         SceneManager.LoadScene(currentSceneName);
+        Time.timeScale = 1f;
     }
 }

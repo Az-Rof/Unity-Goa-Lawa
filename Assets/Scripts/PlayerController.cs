@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                 newVelocity.x = h * speed * Time.deltaTime;
                 rigidbody2D.velocity = newVelocity;
                 animator.SetFloat("hMove", MathF.Abs(h));
-                animator.SetFloat("hSpeed", MathF.Abs(speed) * MathF.Abs(h));
+                //animator.SetFloat("hSpeed", MathF.Abs(speed) * MathF.Abs(h));
             }
             animator.SetFloat("yMove", MathF.Abs(rigidbody2D.velocity.y));
         }
