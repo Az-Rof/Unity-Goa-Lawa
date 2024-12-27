@@ -4,16 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pop-Up
+  - Collectables
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Player
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
@@ -41,7 +41,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 4044654773
     locked: 0
